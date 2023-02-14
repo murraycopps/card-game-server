@@ -38,7 +38,6 @@ const createGame = (name: string): Game => {
         name: name,
         players: []
     }
-    dealCards(game);
     games.push(game);
     return game;
 }
@@ -51,6 +50,10 @@ const addPlayer = (game: Game, name: string): Player => {
         cards: []
     }
     game.players.push(player);
+    if(game.players.length === 2) {
+        game.started = true;
+        dealCards(game);
+    }
     return player;
 }
 

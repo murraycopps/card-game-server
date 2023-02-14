@@ -1,8 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import { games, Game, Card, createGame, addPlayer } from "./games";
 
 const app = express();
+app.use(cors());
+
 
 // create application/json parser
 const jsonParser = bodyParser.json()
